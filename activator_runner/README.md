@@ -19,7 +19,7 @@ After the project is created add the following docker-compose.yml file and conti
           - sbt:/root/.sbt
           - ivy2:/root/.ivy2
         ports:
-          - 9000:8558
+          - 9000:9000
         command: activator ~compile
     volumes:
       sbt:
@@ -28,3 +28,16 @@ After the project is created add the following docker-compose.yml file and conti
       ivy2:
         external: true
           # name: ivy2
+
+
+To start the service that will continuously compile on every change in file, simple run:
+
+    docker-compose up
+    
+If other commands like test or one-off compile run following to enter bash shell:
+
+    docker-compose run tester bash
+    
+Above command will not expose ports as per design intention of docker according to documentation but if you need to expose ports in one-off commands using `run` then use flag `--service-ports` as :
+
+    docker-compose run --service-ports tester bash
