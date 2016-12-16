@@ -1,5 +1,6 @@
-FROM java:8-jdk
+FROM openjdk:8-jre
 
+MAINTAINER Nauman Badar <naumanb@kth.se>
 
 # set correct time zone. In my case it is Stockholm. This is a temporary fix until docker fixes the issue of always getting container with UTC timezone.
 RUN echo Europe/Stockholm | tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
