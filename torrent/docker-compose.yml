@@ -1,0 +1,10 @@
+version: "3"
+services:
+
+  torrent:
+    image: jpillora/cloud-torrent
+    ports:
+      - "3000:3000"
+    volumes:
+      - ~/Downloads/mov:/downloads
+
